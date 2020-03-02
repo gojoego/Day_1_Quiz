@@ -6,11 +6,23 @@ Section 1 - Fundamentals:
 
 1) What defines "a block" of code?
 
+Curly brackets 
+
 2) What is "variable scope"?
+
+Parameters
 
 3) What defines "variable scope"?
 
+Parameters?
+
 4) What are Java's primitive data types? Please list them and briefly explain them.
+
+String
+int 
+double 
+boolean 
+
 
 5) What are Java's arithmetic operators? Please demonstrate all of them.
 
