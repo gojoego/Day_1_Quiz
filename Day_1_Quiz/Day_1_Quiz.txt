@@ -6,41 +6,42 @@ Section 1 - Fundamentals:
 
 1) What defines "a block" of code?
 
-Curly brackets define a block of code. The block begins with an open curly brace symbol and ends with a close curly brace symbol.
-
-A block of code is defined by curly brackets. 
+Curly brackets define a block of code. The block begins with an opening curly brace symbol and ends with a closing curly brace symbol.
 
 2) What is "variable scope"?
 
-Variable scope is the part of the program that a variable has access to.
-
-Variable scope defines when and where variable is available 
+Variable scope is the part of the program that a variable has access to. Variable scope defines when and where variable is available, normally within the neast enclosing brackets.   
 
 3) What defines "variable scope"?
 
-The nearest enclosing curly brackets
-Variable scope is defined by the block of code in which the variable is declared.
+The variable scope is defined by the nearest enclosing curly brackets. Variable scope is defined by the block of code in which the variable is declared.
+
+Example: 
 
 public void someMethod(){
 	 
 	 int x = 10;
 
 	 if(something == somethingElse){
-	 		// I can use "x"
+	 		// I can use "x" within this block of code
 	 		int y = 20
 	 }
+     // if you try to use y++ outside of the block, you will 
+     // get a compilation error because y is "out of scope"
 }
 
 4) What are Java's primitive data types? Please list them and briefly explain them.
 
-boolean- true/false 
-char- 8-bit ASCII character set 
-byte- very small numbers, 8 bits
-short- small numbers, 16 bits
-int- medium sized numbers, 32 bits
-long- larger numbers; needs 'l', 64 bits
-float- even larger numbers; needs 'f', 32 bits
-double- largest numbers with decimal point, 64 bits 
+boolean: true/false
+
+char: single character, 8-bit ASCII character set 
+
+byte: very small numbers, 8 bits
+short: small numbers, 16 bits
+int: medium sized numbers, 32 bits
+long: larger numbers, needs 'l', 64 bits
+float: even larger numbers, needs 'f', 32 bits
+double: largest numbers with decimal point, 64 bits 
 
 5) What are Java's arithmetic operators? Please demonstrate all of them.
 
