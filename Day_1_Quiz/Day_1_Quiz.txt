@@ -37,10 +37,15 @@ boolean: true/false
 char: single character, 8-bit ASCII character set 
 
 byte: very small numbers, 8 bits
+
 short: small numbers, 16 bits
+
 int: medium sized numbers, 32 bits
+
 long: larger numbers, needs 'l', 64 bits
+
 float: even larger numbers, needs 'f', 32 bits
+
 double: largest numbers with decimal point, 64 bits 
 
 5) What are Java's arithmetic operators? Please demonstrate all of them.
@@ -65,14 +70,15 @@ double: largest numbers with decimal point, 64 bits
 &	AND 
 x < 7 & x > 2, x = 3 TRUE
 
-&&	Short-Circuit AND
+&&	Short-Circuit AND (or AND/AND)
 x < 7 && x > 2, x = 8, FALSE
+used in bitwise operations 
 
 |	OR
 x < 7 | x > 2, x = 8, TRUE
 
 
-||	Short-Circuit OR
+||	Short-Circuit OR (or OR/OR)
 x < 7 || x > 2, x = 8, TRUE
 
 ^	XOR (One can be true but not both) 
@@ -85,9 +91,11 @@ x != 10, x = 9, TRUE
 
 A conditional statement is a statement that Java uses to decide which code has to be run when the true condition is met or which code has not to be run when the true condition is not met.
 
-an if, if/else, statement, switch statement 
+if, if/else, switch statement 
 
 9) What types of loops do we have in Java? Please demonstrate each of them.
+
+Loops: for, while, for-each, do-while 
 
 while loops:
 
@@ -165,19 +173,22 @@ public class NestedLoops {
 
 10) What do the keywords "continue", "break", and "return" do?
 
-continue- forces an early iteration of a loop, does not exit the loop like the break, but skips the remaining code and iterates to the next iteration
+continue
+-forces an early iteration of the current loop
+-does not exit the loop like the break, but skips the remaining code and iterates to the next iteration
 
-break- breaks out of a loop
+break- breaks out of nearest loop immediately
 
 return- exits method and returns to where it was called, usually the main method
 	-immediately exit the current method 
-	-if return type is not void 
+	-if return type is not void, must return value of specific 
+    type in method  
 
 11) What is a Switch Statement? Please demonstrate.
 
--functionally an if/else ladder 
+-functionally equivalent to an if/else ladder 
 
-decision making statement that can have a number of execution paths 
+-decision making statement that can have a number of execution paths 
 
 public class SwitchStatement {
 
@@ -189,7 +200,7 @@ public class SwitchStatement {
         // prompt user
         System.out.println("Enter a number between 1 and 12: ");
 
-        // 3) assign input to variable as int
+        // assign input to variable as int
         int i = scanner.nextInt();
 
         switch (i) {
@@ -242,25 +253,28 @@ Section 2 - Introduction to Data Structures:
 
 collection of variables of the same type
 
-An array is the simplest data structure in Java. It's fixed in size. You access elements in array using their index. 
+An array is the simplest data structure in Java. It's fixed in size. You can access elements in array using their index. 
 
 13) What is the difference between the length() of an Array and the final index of an Array?
 
 .length() tells you how many indexes there are in an Array
 the final index is the last index in your Array 
 
-the length is always one greater, because indices start at 0
+int[] nums = new int[7];
+
+The length is always one greater because indices start at 0.
 
 14) How do we instantiate an Array of size 7? Please demonstrate.
 
 int[] dayOneQuiz = new int[7];
 
-15) Please write a for loop that will populate the Array you created above with the numbers two through twelve (start with 2 and increment by 2).
+
+15) Please write a for loop that will populate the Array you created above with the numbers two through fourteen (start with 2 and increment by 2).
 
 int x = 2;
 for(int i = 0; i < 7; i+=2){
-		nums[i] = x;
-		x +=2; }
+		nums[i] = x +=2; 
+        }
 
 ++x will increment before placing value in array 
 
@@ -278,7 +292,6 @@ for(int i : nums){
 	sout(i);
 }
 
-
 public static void main(String[] args) {
     for (int i = 0; i < vals.length; i += 2){
     	System.out.println(vals[i]);
@@ -291,17 +304,25 @@ int[][] dayOne = new int[7][7];
 
 array of arrays 
 
+0 1 2 3 4 5 6 
+1
+2
+3
+4
+5
+6
+
+
 18) Please demonstrate how to populate the 2D array above using a nest for loop?
 
-anytime using 2d will use nested for loops 
+anytime you are using 2D arrays, you will probably use nested for loops 
 
 for(int a = 0; a < nums2d.length; a++){
-	for(int b = 0; b < nums2d[a.length]; b++){
+	for(int b = 0; b < nums2d[a].length]; b++){
 		nums2d[a][b] = z;
 		z++;
 	}
 }
-
 
 
 public class PopulatingTwoDArray {
@@ -342,7 +363,7 @@ resizable-array implementation of the List interface, similar to Array
 
 ArrayList does not have a fixed sized
 ArrayLists are Generic 
-
+(Generics do not work with primitive types)
 
 22) What are a few useful methods that are available to us when using an ArrayList?
 
@@ -374,27 +395,27 @@ Section 3 - Object-Oriented Programming (OOP):
 
 23) What is OOP?
 
-method of representing data in a logical manner
-
-paradigm for structuring code which allows modeling of the world 
-
-programming style/paradigm that allows us to simply and effectively model the world
-around us in an intuitive way. We can interact with these models/objects intuitively 
+Object Oriented Programming is a method of representing data in a logical manner. It is a programming style/paradigm for structuring code which allows modeling of the world. It allows us to simply and effectively model the world around us in an intuitive way. We can then interact with these models/objects in an intuitive way. 
 
 24) What are the primary tenants/principles of OOP?
 
 -abstraction: idea of abstracting away complexity 
--encapsulation: putting all data and methods that act on data inside appropriate class 
--inheritance: the ability for one class to inherity the properties and functions of 
-another class
--polymorphism: many forms, ability for single class or method to behave in many different ways 
+
+Encapsulation:  Putting all data and methods that act on data 
+                inside the appropriate class 
+
+Inheritance:    the ability for one class to inherit the properties 
+                and functions of another class
+
+Polymorphism: many forms, ability for single class or method to behave in many different ways 
 (ex. println method, heavily overloaded)
 
 25) Please explain the tenants/principles you listed in the previous question.
 
 Abstraction: concentrate on the necessary things and highlight the ones which are crucial to solving the problem at hand, without worrying about the details which are not relevant to the problem hand
 
-Encapsulation: all data and methods that act on that data are encapsulated within a Class
+Encapsulation: Putting all data and methods that act on that data
+
 
 Inheritance: child class can inherit variables and methods of parent class 
 
