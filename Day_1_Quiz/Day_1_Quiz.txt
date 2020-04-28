@@ -580,9 +580,16 @@ Polymorphism: "many forms," ability to have what appears to be a single function
 
     Static variables point to the same point in memory.
 
+
 34) What is the difference between a static method and a non-static method?
 
-    a static method is completely unrelated to any specific object of that class. IE Math.multiply() there is no reason to create an object of the Math class ot call the multiply.
+    Static methods interact with static variables. Non-static methods interact with non-static variables. Non-static methods do not require an object. For example, for the Math.multiply() there is no reason to create an object of the Math class to call the multiply method.
+
+    Static is outside the realm of objects. 
+
+    A static method is completely unrelated to any specific object of that class. IE math.multiply 
+    there is no reason to create an object of the MAth class to call the multiply method
+
 
 
     However, if it's nonstatic, it is related to a very specific object. such as changing the pain color of a specific object of the Car class - this is "non-static "
@@ -600,7 +607,45 @@ Polymorphism: "many forms," ability to have what appears to be a single function
 
 35) What do we need in order to be able to call a non-static method?
 
-    create an object of class containing nonstatic method
+    In order to call a non-static method, you need to create an object of class containing nonstatic method.
+
+    class GFG{
+        public void geek(){
+        }
+    }
+
+    // creating object
+    GFG g = new GFG();
+
+    g.geek();
+
+    // calling
+
+
+        // Java program to call a non-static method 
+
+    class GFG { 
+
+        // non-static method 
+        public int sum(int a, int b) 
+        { 
+            return a + b; 
+        } 
+    } 
+
+    class Main { 
+        public static void main(String[] args) 
+        { 
+            int n = 3, m = 6; 
+            GFG g = new GFG(); 
+            int s = g.sum(n, m); 
+            // call the non-static method 
+
+            System.out.print("sum is = " + s); 
+        } 
+    }
+
+    Output: sum is = 9
 
 36) How do we call a static method that is in another class?
 
