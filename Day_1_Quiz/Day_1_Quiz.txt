@@ -399,7 +399,7 @@ Object Oriented Programming is a method of representing data in a logical manner
 
 24) What are the primary tenants/principles of OOP?
 
--abstraction: idea of abstracting away complexity 
+Abstraction:    idea of abstracting away complexity 
 
 Encapsulation:  Putting all data and methods that act on data 
                 inside the appropriate class 
@@ -407,8 +407,8 @@ Encapsulation:  Putting all data and methods that act on data
 Inheritance:    the ability for one class to inherit the properties 
                 and functions of another class
 
-Polymorphism: many forms, ability for single class or method to behave in many different ways 
-(ex. println method, heavily overloaded)
+Polymorphism:   "many forms", ability for single class or method to 
+                behave in many different ways (ex. println method, heavily overloaded)
 
 25) Please explain the tenants/principles you listed in the previous question.
 
@@ -416,141 +416,144 @@ Abstraction: concentrate on the necessary things and highlight the ones which ar
 
 Encapsulation: Putting all data and methods that act on that data
 
-
 Inheritance: child class can inherit variables and methods of parent class 
 
 Polymorphism: "many forms," ability to have what appears to be a single function or behavior act in a variety of different ways 
 
 26) What is a constructor?
 
-A constructor is a block of code that initializes the newly created object.
+    A constructor is a block of code that initializes the newly created object.
 
-constructor is like a method but doesn't have return type 
-name must always match the name of class
+    A constructor is like a method but does not have a return type 
+    The name of the constructor must always match the name of class.
 
-invoked each time a new object is created of that class 
+    Whenever a constructor is invoked, a new object is created from that class.  
 
-often used to set up basic object requirements 
+    Constructors are often used to set up basic object requirements.
 
-if you do not provide custom, default created
+    If you do not provide a custom constructor, a default one will be created.
 
 27) When, specifically, is a constructor invoked?
 
-constructor is invoked every time you see the "new" keyword 
+    A constructor is invoked every time you see the "new" keyword. 
 
-to create a new object
+    A constructor is invoked to create a new object.
 
 28) How do we create a new object in Java?
 
-Car myCar = new Car();
+    Car myCar = new Car();
 
-invoke a constructor from the Class we want to create an object from
+    To create a new object in Java, you need to invoke a constructor from the Class you want to create an object from.
 
 29) What is Object Composition? Please give a simple demo below.
 
-abilty to create one object that is comprises of one or more other objects 
+    Object composition is the abilty to create one object that comprises of one or more other objects. 
 
-class Classroom {
-	ArrayList<Tables> tables;
-	ArrayList<Chairs> chairs;
-	ArrayList<Projectors> projectors;
-	Door door;
-	Ceiling ceiling;
-	int maxCapacity; 
-}
+    class Classroom {
+    	ArrayList<Tables> tables;
+    	ArrayList<Chairs> chairs;
+    	ArrayList<Projectors> projectors;
+    	Door door;
+    	Ceiling ceiling;
+    	int maxCapacity; 
+    }
 
+    Object composition is creating objects from objects.
 
-creating objects from objects
-
-public class Engine {
-   double horsePower;
-    public Engine(double horsePower){
-        this.horsePower = horsePower;
+    public class Engine {
+       double horsePower;
+        public Engine(double horsePower){
+            this.horsePower = horsePower;
+        }
     }
-}
-public class Stereo {
-    String brand;
-    public Stereo(String brand){
-        this.brand = brand;
+    public class Stereo {
+        String brand;
+        public Stereo(String brand){
+            this.brand = brand;
+        }
     }
-}
-public class Car {
-    Engine engine;
-    Stereo stereo;
-    String model;
-    String color;
-    public Car(Engine engine, Stereo stereo, String model, String color){
-        this.engine = engine;
-        this.stereo = stereo;
-        this.model = model;
-        this.color = color;
+    public class Car {
+        Engine engine;
+        Stereo stereo;
+        String model;
+        String color;
+        public Car(Engine engine, Stereo stereo, String model, String color){
+            this.engine = engine;
+            this.stereo = stereo;
+            this.model = model;
+            this.color = color;
+        }
     }
-}
-public class Example {
-    public static void main(String[] args){
-        Engine myEngine = new Engine(400);
-        Stereo myStereo = new Stereo("Panasonic");
-        Car myCar = new Car(myEngine, myStereo, "XTerra", "Blue");
-        System.out.println("I drive a " + myCar.color + " " + myCar.model + " with a sweet "
-                + myCar.stereo.brand + " stereo, and a " + myCar.engine.horsePower 
-                + " horse power engine");
+    public class Example {
+        public static void main(String[] args){
+            Engine myEngine = new Engine(400);
+            Stereo myStereo = new Stereo("Panasonic");
+            Car myCar = new Car(myEngine, myStereo, "XTerra", "Blue");
+            System.out.println("I drive a " + myCar.color + " " + myCar.model + " with a sweet "
+                    + myCar.stereo.brand + " stereo, and a " + myCar.engine.horsePower 
+                    + " horse power engine");
+        }
     }
-}
 
 30) What are the access modifiers in Java? Please list them and briefly describe them.
 
-public - available anywhere by anyone 
-protected - members of same package or subclasses
-private - same class
-default (no modifier provided) - only available to members of same package 
+    public      available anywhere by anyone 
+
+    protected   only available to members of same package or 
+                subclasses
+
+    private     only accessible by members of the same class
+
+    default     (no modifier provided)
+                only available to members of the same package 
 
 
-public		any class, in any location can access or invoke that member.
-private 	only other members of the same class can access that member.
-protected 	only members within the same package can access that member, 
-			with the inclusion of a subclass of that class, if it is 
-			in a different package. We'll discuss this concept (inheritance) shortly.
-default 	(no specific modifier) - only members of classes within the
-			same package have access to that member.
+    public		any class, in any location can access or invoke that 
+                member
+
+    private 	only other members of the same class can access that 
+                member
+    protected 	only members within the same package can access that 
+                member, with the inclusion of a subclass of that class, if it is in a different package. We'll discuss this concept (inheritance) shortly.
+    default 	(no specific modifier) 
+                only members of classes within the
+    			same package have access to that member
 
 31) What is the difference between "this" and "super"?
 
-this refers to member of current class 
+    "this" refers to a member of the current class
+
+    this refers to member of current class 
 	variable or method 
 
-super refers to any parent class 
+    "super" refers to any parent class 
 
-this refers to current class and super refers to parent class
+    this refers to current class and super refers to parent class
 
 32) What is an "abstract" class?
 
-class that implements interface but does not implement all the abstract methods or empty methods defined in the Interface 
+    class that implements interface but does not implement all the abstract methods or empty methods defined in the Interface 
 
-public interface VehicleInterface {
-	
-	public void stop();
-	public void start();
-	public void accelerate();
-	public void decelerate();
+    public interface VehicleInterface {
+    	public void stop();
+    	public void start();
+    	public void accelerate();
+    	public void decelerate();
+    }
 
-}
+    public abstract class Plane implements VehicleInterface {
+    	// implement start() and stop() 
+    	// unable to implement accelerate() and decelerate()
+    }
 
-public abstract class Plane implements VehicleInterface {
-	// implement start() and stop() 
-	// unable to implement accelerate() and decelerate()
+    public class FighterJet extends Plane{
+    	
+    	// FighterJet must implement accelerate() and decelerate()
+    	// cannot make object of abstract class 
+    }
 
-
-	
-}
-
-public class FighterJet extends Plane{
-	
-	//FighterJet must implement accelerate() and decelerate()
-	// cannot make object of abstract class 
-}
-
-Abstract class: is a restricted class that cannot be used to create objects 
-(to access it, it must be inherited from another class)
+    Abstract class: is a restricted class that cannot be used to create objects 
+    (to access it, it must be inherited from another class)
 
 33) What is the difference between a static variable and a non-static variable?
 
