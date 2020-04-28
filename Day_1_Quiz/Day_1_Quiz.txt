@@ -532,7 +532,7 @@ Polymorphism: "many forms," ability to have what appears to be a single function
 
 32) What is an "abstract" class?
 
-    class that implements interface but does not implement all the abstract methods or empty methods defined in the Interface 
+    An abstract class is one that implements an interface but does not implement all of the abstract methods or empty methods defined in the interface. 
 
     public interface VehicleInterface {
     	public void stop();
@@ -540,12 +540,10 @@ Polymorphism: "many forms," ability to have what appears to be a single function
     	public void accelerate();
     	public void decelerate();
     }
-
     public abstract class Plane implements VehicleInterface {
     	// implement start() and stop() 
     	// unable to implement accelerate() and decelerate()
     }
-
     public class FighterJet extends Plane{
     	
     	// FighterJet must implement accelerate() and decelerate()
@@ -555,197 +553,199 @@ Polymorphism: "many forms," ability to have what appears to be a single function
     Abstract class: is a restricted class that cannot be used to create objects 
     (to access it, it must be inherited from another class)
 
+    implements vs extends:
+
+    "implements" is for implementing an interface, only class that implements an interface can use methods 
+
+    "extends" is for extending a class, can override methods in super 
+
 33) What is the difference between a static variable and a non-static variable?
 
-static variables shared between ALL instances of class 
+    Static variables are shared between ALL instances of a class. 
 
-class Car {
-	
-	String make;
-	String color;
-	static int numCarsCreated;
+    class Car {
+    	
+    	String make;
+    	String color;
+    	static int numCarsCreated;
 
-	public Car( String make, String model){
-		this.make = make;
-		this.model = model;
-		numCarsCreated++;
-	}
+    	public Car( String make, String model){
+    		this.make = make;
+    		this.model = model;
+    		numCarsCreated++;
+    	}
+    }
 
+    A static variable can be accessed without creating an object of its containing class. Nonstatic variables require an object to be accessed. 
 
-}
-
-static variable can be accessed without creating an object of its containing class
-nonstatic variables require an object to be accessed
-
-static variables point to the same point in memory
+    Static variables point to the same point in memory.
 
 34) What is the difference between a static method and a non-static method?
 
-a static method is completely unrelated to any specific object of that class. IE Math.multiply() there is no reason to create an object of the Math class ot call the multiply.
+    a static method is completely unrelated to any specific object of that class. IE Math.multiply() there is no reason to create an object of the Math class ot call the multiply.
 
 
-However, if it's nonstatic, it is related to a very specific object. such as changing the pain color of a specific object of the Car class - this is "non-static "
+    However, if it's nonstatic, it is related to a very specific object. such as changing the pain color of a specific object of the Car class - this is "non-static "
 
 
-nonstatic methods don't need object- MATH class for example 
+    nonstatic methods don't need object- MATH class for example 
 
-static outside realm of objects 
--class related 
+    static outside realm of objects 
+    -class related 
 
-Static methods do not have access to non-static instance variables.
-Static methods can only directly call other static methods.
-Static methods can only directly access static data.
-Static methods do not have a "this" reference - because "this" refers to "this" object.
+    Static methods do not have access to non-static instance variables.
+    Static methods can only directly call other static methods.
+    Static methods can only directly access static data.
+    Static methods do not have a "this" reference - because "this" refers to "this" object.
 
 35) What do we need in order to be able to call a non-static method?
 
-create an object of class containing nonstatic method
+    create an object of class containing nonstatic method
 
 36) How do we call a static method that is in another class?
 
-invoke using the class name
+    invoke using the class name
 
-Classname.StaticMethodName()
+    Classname.StaticMethodName()
 
-static methods have nothing to do with objects 
+    static methods have nothing to do with objects 
 
 37) What does it mean to "overload" a method?
 
-overloading means you define method more than once with different parameters 
+    overloading means you define method more than once with different parameters 
 
-System.out.println()
-overloaded 11x 
-11 different types of data 
+    System.out.println()
+    overloaded 11x 
+    11 different types of data 
 
-create multiple methods with same signature or name but differing parameters and types
+    create multiple methods with same signature or name but differing parameters and types
 
 38) What does it mean to "override" a method?
 
-overriding is when subclass defines a method that is also defined in the parent class and changes the behavior 
+    overriding is when subclass defines a method that is also defined in the parent class and changes the behavior 
 
-in order to override parent class method, the child class method definition must match exactly 
+    in order to override parent class method, the child class method definition must match exactly 
 
-signatures must match 
+    signatures must match 
 
-
-when a child class overrides a method from the parent class
+    when a child class overrides a method from the parent class
 
 
 Section 4 - Exception Handling:
 
 39) What is exception handling all about?
 
-whatever can go wrong will go wrong 
-process of expecting and gracefully handling errors in our programs to avoid program failure and termination 
+    whatever can go wrong will go wrong 
+    process of expecting and gracefully handling errors in our programs to avoid program failure and termination 
 
-catching mistakes so that they do not disrupt your program
+    catching mistakes so that they do not disrupt your program
 
 40) Please demonstrate a try/catch/finally statement below.
 
 
-try{
-	// to do something
-} catch (SomeException exc){
-	// that might happen, might not
-} finally {
-	// do something whether an exception was generated or not 
-}
-
-
-class OutofBounds
-{
-    public static void main(String args[]) {
-        int[] numArray = {1981, 1983, 1985, 1987};
-
-        try{
-            System.out.println(numArray[6]);
-        }
-        catch(ArrayIndexOutOfBoundsException exc){
-            System.out.println("this index does not exist");
-        }
-        finally{
-            System.out.println("finally block");
-        }
-        System.out.println("done with try-catch-finally");
+    try{
+    	// to do something
+    } catch (SomeException exc){
+    	// that might happen, might not
+    } finally {
+    	// do something whether an exception was generated or not 
     }
-}
+
+
+    class OutofBounds
+    {
+        public static void main(String args[]) {
+            int[] numArray = {1981, 1983, 1985, 1987};
+
+            try{
+                System.out.println(numArray[6]);
+            }
+            catch(ArrayIndexOutOfBoundsException exc){
+                System.out.println("this index does not exist");
+            }
+            finally{
+                System.out.println("finally block");
+            }
+            System.out.println("done with try-catch-finally");
+        }
+    }
 
 41) How do we create a custom exception? Please demonstrate.
 
-public class MyException extends Exception {
-	
-	public MyException (String message){
-		super(message);
-	}
-}
-
-create subclass of Exception Class
-
-class NotAValidColorException extends Exception{
-
-    String color;
-
-    public NotAValidColorException(String color) {
-        this.color = color;
+    public class MyException extends Exception {
+    	
+    	public MyException (String message){
+    		super(message);
+    	}
     }
 
-    @Override
-    public String toString() {
-        // jvm will call method
-        return color + " is not a valid color";
+    create subclass of Exception Class
+
+    class NotAValidColorException extends Exception{
+
+        String color;
+
+        public NotAValidColorException(String color) {
+            this.color = color;
+        }
+
+        @Override
+        public String toString() {
+            // jvm will call method
+            return color + " is not a valid color";
+        }
     }
-}
 
-class CustomExceptionDemo {
-    public static void main(String[] args) {
+    class CustomExceptionDemo {
+        public static void main(String[] args) {
 
-        try {
-            paint("Blue");
-        } catch (NotAValidColorException e) {
-            System.out.println(e.toString());
-        }
-        try {
-            paint("Red");
-        } catch (NotAValidColorException e) {
-            System.out.println(e.toString());
-        }
-        try {
-            paint("Purple");
-        } catch (NotAValidColorException e) {
-            System.out.println(e.toString());
-        }
-        try {
-            paint("Car");
-        } catch (NotAValidColorException e) {
-            System.out.println(e.toString());
-        }
+            try {
+                paint("Blue");
+            } catch (NotAValidColorException e) {
+                System.out.println(e.toString());
+            }
+            try {
+                paint("Red");
+            } catch (NotAValidColorException e) {
+                System.out.println(e.toString());
+            }
+            try {
+                paint("Purple");
+            } catch (NotAValidColorException e) {
+                System.out.println(e.toString());
+            }
+            try {
+                paint("Car");
+            } catch (NotAValidColorException e) {
+                System.out.println(e.toString());
+            }
 
 
+        }
+        public static void paint(String color) throws NotAValidColorException {
+            ArrayList<String> colors = new ArrayList<>();
+            colors.add("Blue");
+            colors.add("Yellow");
+            colors.add("Purple");
+            colors.add("Pink");
+
+            if(!colors.contains(color)){
+                throw new NotAValidColorException(color);
+            }
+            System.out.println("painting " + color);
+        }
     }
-    public static void paint(String color) throws NotAValidColorException {
-        ArrayList<String> colors = new ArrayList<>();
-        colors.add("Blue");
-        colors.add("Yellow");
-        colors.add("Purple");
-        colors.add("Pink");
-
-        if(!colors.contains(color)){
-            throw new NotAValidColorException(color);
-        }
-        System.out.println("painting " + color);
-    }
-}
 
 42) What does it mean to "throw" an exception?
 
-we can manually throw an exception anytime we want
+    we can manually throw an exception anytime we want
 
-if (x==10){
-	throw new IDontLike("this number sucks");
-}
+    if (x==10){
+    	throw new IDontLike("this number sucks");
+    }
 
-throwing an exception means to send an exception to the class that called the method
-because the current method cannot handle the exception
+    throwing an exception means to send an exception to the class that called the method
+    because the current method cannot handle the exception
 
 43) What is the difference between the keywords "throw" and "throws"?
 
