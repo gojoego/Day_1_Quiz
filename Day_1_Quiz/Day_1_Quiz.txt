@@ -653,23 +653,29 @@ Polymorphism: "many forms," ability to have what appears to be a single function
 
     Classname.StaticMethodName()
 
-    static methods have nothing to do with objects 
+    Static methods have nothing to do with objects.  
 
 37) What does it mean to "overload" a method?
 
-    overloading means you define method more than once with different parameters 
+    Overloading means you define method more than once with different parameters. For example: 
 
     System.out.println()
-    overloaded 11x 
-    11 different types of data 
+    -overloaded 11x 
+    -can pass it 11 different types of data 
+    -one of the declarations is of type Object (Object O)
+    -allows printing of any object 
 
     create multiple methods with same signature or name but differing parameters and types
 
 38) What does it mean to "override" a method?
 
-    overriding is when subclass defines a method that is also defined in the parent class and changes the behavior 
+    Overriding is when subclass defines a method that is also defined in the parent class and changes the behavior. In order to override parent class method, the child class method definition must match EXACTLY. No single character that is different. Different parameter not overriding
 
-    in order to override parent class method, the child class method definition must match exactly 
+    @Override notation required to get warning that  you're not overriding 
+
+    someone might come in change parent class not aware that subclasses 
+
+    no compilation error  
 
     signatures must match 
 
@@ -680,13 +686,13 @@ Section 4 - Exception Handling:
 
 39) What is exception handling all about?
 
-    whatever can go wrong will go wrong 
-    process of expecting and gracefully handling errors in our programs to avoid program failure and termination 
+    Whatever can go wrong, will go wrong. Exception handling is the process of expecting and gracefully handling errors in our programs to avoid program failure and termination. 
 
-    catching mistakes so that they do not disrupt your program
+    Great applications with beautiful code can be for nothing without exception handling. 
+
+    Exception handling is catching mistakes so that they do not disrupt your program.
 
 40) Please demonstrate a try/catch/finally statement below.
-
 
     try{
     	// to do something
@@ -695,6 +701,10 @@ Section 4 - Exception Handling:
     } finally {
     	// do something whether an exception was generated or not 
     }
+
+    Is there a circumstance where a finally block will not be executed? 
+
+    NO, there is NOT
 
 
     class OutofBounds
@@ -717,9 +727,12 @@ Section 4 - Exception Handling:
 
 41) How do we create a custom exception? Please demonstrate.
 
+    Java has plenty of exceptions that programmers can use, like null pointer exception or arithmetic exception. But if you need to create an exception for a specific purpose, you can create a custom exception.  
+
     public class MyException extends Exception {
     	
     	public MyException (String message){
+            // calling super constructor
     		super(message);
     	}
     }
@@ -783,28 +796,32 @@ Section 4 - Exception Handling:
 
 42) What does it mean to "throw" an exception?
 
-    we can manually throw an exception anytime we want
+    We can manually throw an exception anytime we want.
 
     if (x==10){
-    	throw new IDontLike("this number sucks");
+    	throw new IDontLikeThatNumberException("this number sucks");
     }
 
-    throwing an exception means to send an exception to the class that called the method
-    because the current method cannot handle the exception
+    Throwing an exception means to send an exception to the class that called the method because the current method cannot handle the exception.
 
 43) What is the difference between the keywords "throw" and "throws"?
 
-throw is keyword used to manually throw exception to calling method 
+    "Throw" is the keyword used to manually throw exception to the calling method. Most methods in input/output throw an exception. For example, trying to read a file that does not exist. If there were no exceptions, it would make it harder to diagnose what is going wrong in the application.   
 
-throws keyword used in method signature to indicate that this method has potential to throw an exception 
+    "Throws" is a keyword used in method signature to indicate that this method has the potential to throw an exception.  
 
-Throws clause is used to declare an exception, which means it works similar to the try-catch block. On the other hand throw keyword is used to throw an exception explicitly.
+    The "throws" clause is used to declare an exception, which means it works similar to the try-catch block. On the other hand throw keyword is used to throw an exception explicitly.
+
+    When you call a method that throws an exception, you will get an error until you handle that exception. You can do these 2 things to get rid of the error:
+
+        1. can add "throws" to the method signature (cannot do from main method)
+        2. surround with try/catch statement 
 
 44) When catching multiple exceptions, why must we keep the "exception hierarchy" in mind?
 
-we must catch the more specific exception first, then the more generic ones such as Exception
+    we must catch the more specific exception first, then the more generic ones such as Exception
 
-an exception higher on the hierarchy cannot be placed before a lower hierarchal exception
+    an exception higher on the hierarchy cannot be placed before a lower hierarchal exception
 
 45) Can we have a "try" without a "catch"?
 
