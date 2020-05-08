@@ -819,46 +819,49 @@ Section 4 - Exception Handling:
 
 44) When catching multiple exceptions, why must we keep the "exception hierarchy" in mind?
 
-    we must catch the more specific exception first, then the more generic ones such as Exception
+    It is more informative to catch the more specific exceptions first. 
 
-    an exception higher on the hierarchy cannot be placed before a lower hierarchal exception
+    We must catch the more specific exception first, then the more generic ones such as "Exception."
+
+    An exception higher on the hierarchy cannot be placed before a lower hierarchal exception.
 
 45) Can we have a "try" without a "catch"?
 
-NO
+    NO
 
 46) Can we have a "try/catch" without a "finally"?
 
-YES
+    YES
 
 Section 5 - Input/Output:
 
 47) What is a Byte Stream?
 
-A byte stream is an input/output stream that reads 1 byte or 8 bits at a time- no matter what
-great for reading binary files, such as data, images. etc
+    A byte stream is an input/output stream that reads 1 byte or 8 bits at a time- no matter what. They are great for reading binary files, such as data, images, music, etc. 
 
-Byte Stream Classes are used to read bytes from an input stream and write bytes to an output stream.
+    Byte Stream Classes are used to read bytes from an input stream and write bytes to an output stream.
 
 48) What is a Character Stream?
 
-you'll see "reader" or "writer"
-reader or writer that reads two bytes at a time
-used to read/write human readable language 
-many characters in a number of languages consist of 2 bytes 
+    A character stream is a reader/writer that reads two bytes at a time. Character streams are used to read/write human readable language. Many characters in a number of languages consist of two bytes. 
 
-Character stream automatically allows us to read/write data character by character. 
+    You will see "reader" or "writer" in the name.
+    reader or writer that reads two bytes at a time
+    used to read/write human readable language 
+    many characters in a number of languages consist of 2 bytes 
+
+    Character stream automatically allows us to read/write data character by character. 
 
 49) What is a very quickly clue that tells us whether we're looking at a Byte Stream or a Character Stream?
 
-Byte Streams: always have word “inputStream” or "outputStream" somewhere in class 
-Character Streams: “reader” or “writer” in class name
+    Byte Streams: will always have the key words “inputStream” or "outputStream" somewhere in class. 
+    Character Streams: will always have the words “reader” or “writer” in class name
 
 50) What is the difference between a Buffered Byte Stream and a traditional Byte Stream?
 
-buffered byte stream allows you to read mutliple bytes at a time before processing those bites 
+    A buffered byte stream simply allows you to read mutliple bytes at a time before processing those bites. 
 
-A Buffered Byte Stream allows us to read a block of bytes or a collection of bytes at once. Whereas with a traditional Byte Stream, we can only read (or write) one byte at a time. 
+    A Buffered Byte Stream allows us to read a block of bytes or a collection of bytes at once. Whereas with a traditional Byte Stream, we can only read (or write) one byte at a time. 
 
 51) What is the difference between a Buffered Character Stream and a traditional Character Stream?
 
